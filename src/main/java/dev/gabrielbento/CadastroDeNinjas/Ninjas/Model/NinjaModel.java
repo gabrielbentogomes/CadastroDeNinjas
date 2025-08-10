@@ -30,4 +30,7 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id")
     private MissaoModel missoes;
 
+    @Column (name = "rank")
+    private String rank;
+
 }
