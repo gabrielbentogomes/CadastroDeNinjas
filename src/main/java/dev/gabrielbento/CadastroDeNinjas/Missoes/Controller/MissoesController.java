@@ -1,15 +1,24 @@
 package dev.gabrielbento.CadastroDeNinjas.Missoes.Controller;
 
+import dev.gabrielbento.CadastroDeNinjas.Missoes.Model.MissaoModel;
+import dev.gabrielbento.CadastroDeNinjas.Missoes.Service.MissaoService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
+    private MissaoService missaoService;
+
+    public MissoesController(MissaoService missaoService) {
+        this.missaoService = missaoService;
+    }
 
     // GET -- Mandar uma requisao para mostrar as missoes
     @GetMapping("/listar")
-    public String listarMissao() {
-        return "Missoes listadas com sucesso";
+    public List<MissaoModel> listarMissao() {
+        return missaoService.listarMissoes();
     }
 
     // Post -- Mandar uma requisao para criar as missoes
