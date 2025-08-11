@@ -1,5 +1,6 @@
 package dev.gabrielbento.CadastroDeNinjas.Ninjas.Controller;
 
+import dev.gabrielbento.CadastroDeNinjas.Ninjas.DTO.NinjaDTO;
 import dev.gabrielbento.CadastroDeNinjas.Ninjas.Model.NinjaModel;
 import dev.gabrielbento.CadastroDeNinjas.Ninjas.Service.NinjaService;
 import org.springframework.web.bind.annotation.*;
@@ -21,26 +22,26 @@ public class NinjaController {
     }
     // Adicionar ninja (CREATE)
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel) {
-        return ninjaService.criarNinja(ninjaModel);
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninjaDTO) {
+        return ninjaService.criarNinja(ninjaDTO);
     }
 
     // Mostrar todos os ninjas (READ)
     @GetMapping("/listar")
-    public List<NinjaModel> listarNinjas() {
+    public List<NinjaDTO> listarNinjas() {
         return ninjaService.listarNinjas();
     }
 
     // Mostrar ninja  por id (READ)
     @GetMapping("/listar/{id}")
-    public NinjaModel listarNinjaPorId(@PathVariable Long id) {
+    public NinjaDTO listarNinjaPorId(@PathVariable Long id) {
         return ninjaService.listarPorId(id);
     }
 
     // Alterar dados dos ninjas (UPDATE)
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaModel) {
-        return ninjaService.atualizaNinja(id, ninjaModel);
+    public NinjaDTO alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaDTO ninjaModel) {
+        return ninjaService.atualizarNinja(id, ninjaModel);
     }
 
     // Deletar Ninja (DELETE)
