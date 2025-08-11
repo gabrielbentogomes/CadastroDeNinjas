@@ -51,7 +51,7 @@ public class NinjaService {
                     ninjaExistente.setEmail(ninjaDTO.getEmail() != null ? ninjaDTO.getEmail() : ninjaExistente.getEmail());
                     ninjaExistente.setIdade(ninjaDTO.getIdade() != 0 ? ninjaDTO.getIdade() : ninjaExistente.getIdade());
                     ninjaExistente.setRank(ninjaDTO.getRank() != null ? ninjaDTO.getRank() : ninjaExistente.getRank());
-
+                    ninjaExistente.setMissoes(ninjaDTO.getMissoes()!= null ? ninjaDTO.getMissoes():ninjaExistente.getMissoes());
                     NinjaModel ninjaSalvo = ninjaRepository.save(ninjaExistente);
                     return ninjaMapper.map(ninjaSalvo);
                 })
